@@ -41,7 +41,7 @@ export default function Home() {
         {/* Branding */}
         <div className="space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
-            Wonder Kutor
+            Wonder Victor Kutor
           </h1>
           <div className="h-1 w-20 bg-green-500 mx-auto rounded-full"></div>
         </div>
@@ -97,7 +97,7 @@ export default function Home() {
 
       {/* Footer / Copyright */}
       <div className="absolute bottom-6 text-xs text-gray-400 font-medium tracking-wider">
-        &copy; {new Date().getFullYear()} WONDER KUTOR. ALL RIGHTS RESERVED.
+        &copy; {new Date().getFullYear()} WONDER VICTOR KUTOR. ALL RIGHTS RESERVED.
       </div>
     </main>
   );
