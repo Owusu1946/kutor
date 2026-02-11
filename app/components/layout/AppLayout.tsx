@@ -42,18 +42,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             </div>
 
             {/* Main Content Area */}
-            <main className="flex-1 overflow-y-auto relative scroll-smooth focus:scroll-auto">
-                {/* Breadcrumbs / Top Bar could go here */}
-                <div className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-3 flex items-center justify-between">
-                    {/* Simple Breadcrumb placeholder */}
-                    <div className="text-sm font-medium text-slate-500">
-                        Home
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                        <span className="hidden sm:inline text-sm font-semibold text-slate-700">Wonder Victor Kutor, Esq.</span>
-                        <button className="px-4 py-2 bg-slate-900 text-white text-xs font-bold uppercase tracking-wider rounded transition-transform hover:scale-105">
-                            Contact
+            <main className="flex-1 overflow-y-auto relative scroll-smooth focus:scroll-auto bg-slate-50">
+                {/* Floating minimal header */}
+                <div className="absolute top-0 right-0 left-0 z-30 flex items-center justify-end px-6 py-6 pointer-events-none">
+                    <div className="flex items-center gap-4 pointer-events-auto">
+                        <button className="px-6 py-2.5 bg-emerald-950 text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg hover:bg-emerald-900 hover:shadow-xl transition-all hover:-translate-y-0.5 transform">
+                            Contact Office
                         </button>
                     </div>
                 </div>

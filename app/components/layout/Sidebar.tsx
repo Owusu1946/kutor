@@ -80,8 +80,8 @@ export function Sidebar({ className }: { className?: string }) {
             </div>
 
             {/* Footer / Contact Trigger */}
-            <div className="p-4 border-t border-emerald-900">
-                <button className="w-full py-2 px-4 rounded border border-emerald-800 text-emerald-300 text-xs uppercase tracking-widest hover:bg-emerald-900 hover:text-white transition-colors">
+            <div className="p-4 border-t border-emerald-900 bg-emerald-950/50">
+                <button className="w-full py-3 px-4 rounded-lg bg-emerald-900/50 text-emerald-100 text-xs font-bold uppercase tracking-widest border border-emerald-800 hover:bg-emerald-800 hover:text-white hover:border-emerald-700 transition-all shadow-sm">
                     Contact Office
                 </button>
             </div>

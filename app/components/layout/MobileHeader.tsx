@@ -11,22 +11,31 @@ interface MobileHeaderProps {
 
 export function MobileHeader({ onMenuClick, className }: MobileHeaderProps) {
     return (
-        <header className={cn("flex items-center justify-between px-4 py-3 bg-emerald-950 text-white border-b border-emerald-900 lg:hidden sticky top-0 z-50", className)}>
-            <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-emerald-950 font-serif font-bold text-sm">
-                    {BRAND_DETAILS.initials}
+        <header className={cn("flex items-center justify-between px-6 py-4 bg-emerald-950/95 backdrop-blur-md text-white border-b border-emerald-900 lg:hidden sticky top-0 z-50", className)}>
+            <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden border border-emerald-800 shadow-sm">
+                    <img
+                        src="/images/logo-round.png"
+                        alt={BRAND_DETAILS.name}
+                        className="w-full h-full object-cover"
+                    />
                 </div>
-                <span className="font-serif font-semibold text-sm tracking-wide">
-                    {BRAND_DETAILS.name}
-                </span>
+                <div className="flex flex-col">
+                    <span className="font-serif font-bold text-sm tracking-tight leading-none mb-1">
+                        Wonder Victor Kutor
+                    </span>
+                    <span className="text-[10px] text-emerald-200/60 uppercase tracking-widest font-medium">
+                        Esq.
+                    </span>
+                </div>
             </div>
 
             <button
                 onClick={onMenuClick}
-                className="p-2 -mr-2 text-emerald-300 hover:text-white transition-colors"
+                className="p-2 -mr-2 text-emerald-100/70 hover:text-white transition-all bg-emerald-900/40 rounded-lg border border-emerald-800/50"
                 aria-label="Open menu"
             >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
             </button>
         </header>
     );

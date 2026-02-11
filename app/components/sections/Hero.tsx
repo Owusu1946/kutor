@@ -19,23 +19,38 @@ export function Hero() {
             {/* Radial Gradient overlay for softness */}
             <div className="absolute inset-0 z-0 bg-gradient-to-b from-white via-transparent to-slate-100/50 pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="space-y-6"
-                >
-                    <p className="text-emerald-900/60 uppercase tracking-[0.2em] text-sm font-semibold">
-                        Welcome to
-                    </p>
-                    <h1 className="text-5xl md:text-7xl font-serif text-emerald-950 leading-tight">
-                        Wonder Victor Kutor, <span className="italic text-emerald-800">Esq.</span>
-                    </h1>
-                    <div className="w-24 h-1 bg-emerald-900/10 mx-auto rounded-full my-8" />
-                </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute top-24 right-8 text-right z-20 hidden md:block"
+            >
+                <p className="text-emerald-900/60 uppercase tracking-[0.2em] text-xs font-semibold mb-2">
+                    Welcome to
+                </p>
+                <h1 className="text-2xl md:text-3xl font-serif text-emerald-950 leading-tight">
+                    Wonder Victor Kutor, <span className="italic text-emerald-800">Esq.</span>
+                </h1>
+                <div className="w-16 h-0.5 bg-emerald-900/10 ml-auto rounded-full my-3" />
+            </motion.div>
 
-                <div className="mt-8 h-20 flex items-center justify-center">
+            {/* Mobile Text (visible only on small screens, centered) */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="md:hidden text-center mb-12 z-20"
+            >
+                <p className="text-emerald-900/60 uppercase tracking-[0.2em] text-xs font-semibold mb-2">
+                    Welcome to
+                </p>
+                <h1 className="text-3xl font-serif text-emerald-950 leading-tight">
+                    Wonder Victor Kutor, <span className="italic text-emerald-800">Esq.</span>
+                </h1>
+            </motion.div>
+
+            <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
+                <div className="h-20 flex items-center justify-center">
                     <AnimatePresence mode="wait">
                         {!isExpanded ? (
                             <motion.button
@@ -77,7 +92,7 @@ export function Hero() {
                                     transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
                                     className="px-8 py-3 bg-emerald-950 text-white rounded-full text-sm font-semibold hover:bg-emerald-900 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
                                 >
-                                    Forward
+                                    Forewords
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
