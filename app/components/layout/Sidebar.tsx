@@ -11,7 +11,7 @@ export function Sidebar({ className }: { className?: string }) {
 
     return (
         <aside className={cn("flex flex-col h-full bg-emerald-950 text-white w-72 flex-shrink-0 border-r border-emerald-900", className)}>
-            {/* Brand Block */}
+            {/* Brand Block
             <div className="p-6 border-b border-emerald-900">
                 <div className="flex items-center gap-3 mb-4 justify-center">
                     <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center overflow-hidden border-4 border-emerald-800 shadow-lg">
@@ -30,7 +30,7 @@ export function Sidebar({ className }: { className?: string }) {
                         {BRAND_DETAILS.tagline}
                     </p>
                 </div>
-            </div>
+            </div> */}
 
             <div className="flex-1 overflow-y-auto py-6 px-4 space-y-8 custom-scrollbar">
                 {/* Featured Book Card */}
