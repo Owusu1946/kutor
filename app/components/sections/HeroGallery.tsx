@@ -16,10 +16,28 @@ export function HeroGallery() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // We show 2 images at a time on desktop
-    const itemsPerPage = 2;
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    // 1 image on mobile, 2 on desktop
+    const itemsPerPage = isMobile ? 1 : 2;
     const totalPages = Math.ceil(images.length / itemsPerPage);
+
+    // Reset index if out of bounds when switching views (e.g. rotating device)
+    useEffect(() => {
+        if (currentIndex >= totalPages) {
+            setCurrentIndex(0);
+        }
+    }, [itemsPerPage, totalPages, currentIndex]);
 
     useEffect(() => {
         if (!isAutoPlaying) return;
@@ -29,7 +47,7 @@ export function HeroGallery() {
         }, 3000);
 
         return () => clearInterval(timer);
-    }, [currentIndex, isAutoPlaying]);
+    }, [currentIndex, isAutoPlaying, totalPages]);
 
     const paginate = (newDirection: number) => {
         setDirection(newDirection);
@@ -65,12 +83,13 @@ export function HeroGallery() {
 
     return (
         <section
-            className="relative z-20 -mt-24 pb-12 bg-transparent"
+            // Less negative margin on mobile to avoid overlapping text too much
+            className="relative z-20 -mt-12 md:-mt-24 pb-12 bg-transparent"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full max-w-5xl mx-auto">
+                <div className="relative h-[300px] sm:h-[350px] md:h-[400px] w-full max-w-5xl mx-auto">
                     {/* Navigation Buttons */}
                     <button
                         className="absolute left-2 md:-left-12 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/80 shadow-md hover:bg-white text-emerald-800 transition-colors backdrop-blur-sm"
@@ -89,10 +108,10 @@ export function HeroGallery() {
                     </button>
 
                     {/* Slider Content */}
-                    <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                    <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-xl border-4 border-white bg-slate-100">
                         <AnimatePresence initial={false} custom={direction} mode="popLayout">
                             <motion.div
-                                key={currentIndex}
+                                key={`${currentIndex}-${itemsPerPage}`} // Key changes when config changes to force re-render
                                 custom={direction}
                                 variants={variants}
                                 initial="enter"
@@ -102,16 +121,18 @@ export function HeroGallery() {
                                     x: { type: "spring", stiffness: 300, damping: 30 },
                                     opacity: { duration: 0.2 },
                                 }}
-                                className="absolute w-full h-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8"
+                                className={`absolute w-full h-full grid gap-4 md:gap-8 ${isMobile ? 'grid-cols-1' : 'grid-cols-2'
+                                    }`}
                             >
                                 {currentImages.map((src, index) => (
-                                    <div key={`${currentIndex}-${index}`} className="relative h-full w-full rounded-2xl overflow-hidden shadow-lg group">
+                                    <div key={`${currentIndex}-${index}`} className="relative h-full w-full overflow-hidden group">
                                         <Image
                                             src={src}
-                                            alt={`Gallery image ${currentIndex * itemsPerPage + index + 1}`}
+                                            alt={`Gallery image`}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            className="object-cover"
                                             sizes="(max-width: 768px) 100vw, 50vw"
+                                            priority
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>

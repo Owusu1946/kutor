@@ -75,6 +75,16 @@ export function Hero() {
                                 className="flex flex-col sm:flex-row gap-4 sm:gap-6"
                             >
                                 <motion.a
+                                    href="/files/About the Book.pdf"
+                                    download="About the Book.pdf"
+                                    initial={{ x: -20, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ delay: 0.05, type: "spring", stiffness: 200, damping: 20 }}
+                                    className="px-8 py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
+                                >
+                                    About Book
+                                </motion.a>
+                                <motion.a
                                     href="/files/Table of Contents - The Immigration Formulae.pdf"
                                     download="Table of Contents - The Immigration Formulae.pdf"
                                     initial={{ x: -20, opacity: 0 }}
