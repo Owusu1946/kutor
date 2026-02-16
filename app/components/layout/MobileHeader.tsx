@@ -1,6 +1,5 @@
-"use client";
-
-import { Menu } from "lucide-react";
+import Link from "next/link";
+import { Menu, Home } from "lucide-react";
 import { BRAND_DETAILS } from "@/app/lib/navigation";
 import { cn } from "@/app/lib/utils";
 
@@ -30,13 +29,22 @@ export function MobileHeader({ onMenuClick, className }: MobileHeaderProps) {
                 </div>
             </div>
 
-            <button
-                onClick={onMenuClick}
-                className="p-2 -mr-2 text-emerald-100/70 hover:text-white transition-all bg-emerald-900/40 rounded-lg border border-emerald-800/50"
-                aria-label="Open menu"
-            >
-                <Menu className="w-5 h-5" />
-            </button>
+            <div className="flex items-center gap-2">
+                <Link
+                    href="/"
+                    className="p-2 text-emerald-100/70 hover:text-white transition-all bg-emerald-900/40 rounded-lg border border-emerald-800/50"
+                    aria-label="Go to Home"
+                >
+                    <Home className="w-5 h-5" />
+                </Link>
+                <button
+                    onClick={onMenuClick}
+                    className="p-2 text-emerald-100/70 hover:text-white transition-all bg-emerald-900/40 rounded-lg border border-emerald-800/50"
+                    aria-label="Open menu"
+                >
+                    <Menu className="w-5 h-5" />
+                </button>
+            </div>
         </header>
     );
 }
