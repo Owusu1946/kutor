@@ -26,7 +26,7 @@ export function HeroGallery() {
 
         const timer = setInterval(() => {
             paginate(1);
-        }, 5000);
+        }, 3000);
 
         return () => clearInterval(timer);
     }, [currentIndex, isAutoPlaying]);
@@ -65,7 +65,7 @@ export function HeroGallery() {
 
     return (
         <section
-            className="py-12 bg-white overflow-hidden"
+            className="relative z-20 -mt-24 pb-12 bg-transparent"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
         >
