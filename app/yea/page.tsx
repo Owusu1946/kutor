@@ -24,13 +24,13 @@ export default function YEAPage() {
         },
         {
             src: "/yea/kumasi/photo_2026-02-13_14-46-15.jpg",
-            caption: "HR Director visits Ashanti Region as part of a district tour exercise.",
-            alt: "HR Director visiting Ashanti Region"
+            caption: "HR Director visits Volta Region as part of a district tour exercise.",
+            alt: "HR Director visiting Volta Region"
         },
         {
             src: "/yea/volta/photo_2026-02-13_14-46-18.jpg",
-            caption: "HR Director visits Volta Region as part of a district tour exercise.",
-            alt: "HR Director visiting Volta Region"
+            caption: "HR Director visits Ashanti Region as part of a district tour exercise.",
+            alt: "HR Director visiting Ashanti Region"
         }
     ];
 
