@@ -7,7 +7,7 @@ export default function PoliticsPage() {
             <section className="relative bg-emerald-950 text-white py-20 px-6 sm:px-12">
                 <div className="max-w-5xl mx-auto">
                     <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                        Political Career
+                        Politics
                     </h1>
                     <div className="h-1.5 w-24 bg-red-600 mb-6"></div>
                     <p className="text-emerald-100 text-lg md:text-xl max-w-2xl leading-relaxed">
@@ -20,10 +20,10 @@ export default function PoliticsPage() {
             <section className="px-6 sm:px-12 max-w-5xl mx-auto">
                 <div className="max-w-3xl prose prose-lg prose-emerald text-slate-600">
                     <p className="leading-relaxed mb-6">
-                        In 2014, Mr. Kutor was elected as the Constituency Deputy Secretary of the NDC in the Anlo Constituency, having served as a branch organizer for the Torieme branch in the Anlo Constituency.
+                        In 2014, Mr. Kutor was elected as the Constituency Deputy Secretary of the NDC in the Anlo Constituency, having served as a branch organizer for the Tovieme-Tegbi branch in the Anlo Constituency.
                     </p>
                     <p className="leading-relaxed">
-                        In 2022, Mr. Kutor was elected a memner of the National Executive Committee of the National Democratic Congress (NDC) for a four-year tenure.
+                        In 2022, Mr. Kutor was elected a member of the National Executive Committee of the National Democratic Congress (NDC) for a four-year tenure.
                     </p>
                 </div>
             </section>

@@ -19,8 +19,8 @@ export default function YEAPage() {
         },
         {
             src: "/yea/hr/photo_2026-02-13_14-44-28.jpg",
-            caption: "The HR Directorate of YEA and officers of the Public Service Commission",
-            alt: "HR Directorate of YEA and officers of the Public Service Commission"
+            caption: "The HR Directorate of YEA and officers of the Public Service Commissions",
+            alt: "HR Directorate of YEA and officers of the Public Service Commissions"
         },
         {
             src: "/yea/kumasi/photo_2026-02-13_14-46-15.jpg",
@@ -53,7 +53,7 @@ export default function YEAPage() {
             <section className="px-6 sm:px-12 max-w-5xl mx-auto">
                 <div className="max-w-3xl prose prose-lg prose-emerald text-slate-600">
                     <p className="leading-relaxed mb-6">
-                        Mr. Kutor is a lawyer and management consultant whose dynamic career spans law, Public Administraion, academia, and youth employment policy. He currently Serves as the Director of Human Resource at the Youth Employment Agency (YEA) of Ghana, where he leads startegic workforce development and institutional transformation efforts.
+                        Mr. Kutor is a lawyer and management consultant whose dynamic career spans law, public administraion, academia, and youth employment policy. He currently Serves as the Director of Human Resource at the Youth Employment Agency (YEA) of Ghana, where he leads strategic workforce development and institutional transformation efforts.
                     </p>
                     <p className="leading-relaxed">
                         He previously held the position of Deputy Director of Legal at YEA, having joined the Agency in 2016 as a Municipal Director stationed as the Keta Municipal Assembly.

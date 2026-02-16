@@ -46,9 +46,9 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 {/* Floating minimal header */}
                 <div className="absolute top-0 right-0 left-0 z-30 flex items-center justify-end px-6 py-6 pointer-events-none">
                     <div className="flex items-center gap-4 pointer-events-auto">
-                        <button className="px-6 py-2.5 bg-emerald-950 text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg hover:bg-emerald-900 hover:shadow-xl transition-all hover:-translate-y-0.5 transform">
+                        {/* <button className="px-6 py-2.5 bg-emerald-950 text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-lg hover:bg-emerald-900 hover:shadow-xl transition-all hover:-translate-y-0.5 transform">
                             Contact Office
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

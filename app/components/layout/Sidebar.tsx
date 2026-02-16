@@ -33,23 +33,6 @@ export function Sidebar({ className }: { className?: string }) {
             </div> */}
 
             <div className="flex-1 overflow-y-auto py-6 px-4 space-y-8 custom-scrollbar">
-                {/* Featured Book Card */}
-                <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-900 to-emerald-950 p-5 text-white shadow-lg border border-emerald-800/50 group">
-                    <div className="absolute top-0 right-0 -mt-2 -mr-2 w-16 h-16 bg-white/5 rounded-full blur-xl group-hover:bg-white/10 transition-all duration-500"></div>
-
-                    <div className="relative z-10">
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold bg-red-600 text-white mb-3 shadow-sm uppercase tracking-widest">
-                            <BookOpen className="w-3 h-3" />
-                            Featured
-                        </span>
-                        <h3 className="font-serif text-xl font-bold leading-tight mb-1 group-hover:text-emerald-100 transition-colors text-white">
-                            {BOOK_DETAILS.title}
-                        </h3>
-                        <p className="text-sm text-emerald-200/80 mb-4 font-light italic">
-                            {BOOK_DETAILS.subtitle}
-                        </p>
-                    </div>
-                </div>
 
                 {/* Navigation Items */}
                 <nav className="space-y-1">

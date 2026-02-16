@@ -31,6 +31,11 @@ export const BOOK_DETAILS = {
 
 export const NAV_ITEMS = [
     {
+        label: "Home",
+        href: "/",
+        icon: Home
+    },
+    {
         label: "VRA",
         href: "/vra",
         icon: Building2

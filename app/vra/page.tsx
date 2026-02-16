@@ -26,7 +26,7 @@ export default function VRAPage() {
             <section className="relative bg-emerald-950 text-white py-20 px-6 sm:px-12">
                 <div className="max-w-5xl mx-auto">
                     <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                        VRA Appointment
+                        VRA
                     </h1>
                     <div className="h-1.5 w-24 bg-red-600 mb-6"></div>
                     <p className="text-emerald-100 text-lg md:text-xl max-w-2xl leading-relaxed">
@@ -40,17 +40,17 @@ export default function VRAPage() {
                 <div className="max-w-3xl prose prose-lg prose-emerald text-slate-600">
                     <p className="leading-relaxed mb-6">
                         Mr. Kutor was appointed as a non-executive member of the Board of the
-                        Volta River Authority (VRA) in June 2025 by the president of the
-                        republic of Ghana with the Council of State.
+                        Volta River Authority (VRA) in June 2025 by the President of the
+                        Republic of Ghana in consultation with the Council of State.
                     </p>
                     <p className="leading-relaxed mb-6">
-                        The Board was inaugarated by the honourable Minister of Energy and
-                        Green Transition, Hon. Gr. John Abdulai Jinapor on 23rd June, 2025.
+                        The Board was inaugarated by the Honourable Minister of Energy and
+                        Green Transition, Hon. Dr. John Abdulai Jinapor on 23rd June, 2025.
                     </p>
                     <p className="leading-relaxed">
-                        In July 2025, the VRA Board appointed him as the governance Champoin
+                        In July 2025, the VRA Board appointed him as the Governance Champion
                         for the Authority. He was also subsequently appointed by the board as
-                        the Board Chairman of the Volta River Authority (VRA) international
+                        the Board Chairman of the VRA International
                         Schools Ltd., a subsidiary of VRA.
                     </p>
                 </div>
