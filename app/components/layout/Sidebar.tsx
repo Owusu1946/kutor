@@ -44,6 +44,11 @@ export function Sidebar({ className }: { className?: string }) {
                             <Link
                                 key={item.href}
                                 href={item.href}
+                                onClick={() => {
+                                    if (item.href === "/") {
+                                        window.dispatchEvent(new CustomEvent("reset-hero-state"));
+                                    }
+                                }}
                                 className={cn(
                                     "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group relative",
                                     isActive

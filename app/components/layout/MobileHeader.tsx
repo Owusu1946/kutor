@@ -32,6 +32,7 @@ export function MobileHeader({ onMenuClick, className }: MobileHeaderProps) {
             <div className="flex items-center gap-2">
                 <Link
                     href="/"
+                    onClick={() => window.dispatchEvent(new CustomEvent("reset-hero-state"))}
                     className="p-2 text-emerald-100/70 hover:text-white transition-all bg-emerald-900/40 rounded-lg border border-emerald-800/50"
                     aria-label="Go to Home"
                 >

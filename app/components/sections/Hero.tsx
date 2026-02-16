@@ -1,10 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Hero() {
     const [isExpanded, setIsExpanded] = useState(false);
+
+    useEffect(() => {
+        const handleReset = () => setIsExpanded(false);
+        window.addEventListener("reset-hero-state", handleReset);
+        return () => window.removeEventListener("reset-hero-state", handleReset);
+    }, []);
 
     return (
         <section className="relative flex flex-col items-center justify-center min-h-[80vh] bg-slate-50 overflow-hidden px-4">
