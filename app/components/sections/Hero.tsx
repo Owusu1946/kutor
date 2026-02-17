@@ -98,7 +98,7 @@ export function Hero() {
                                     transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 20 }}
                                     className="px-8 py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
                                 >
-                                    Table of Content
+                                    Table of Contents
                                 </motion.a>
                                 <motion.a
                                     href="/files/FOREWORDS - THE IMMIGRATION FORMULAE.pdf"
