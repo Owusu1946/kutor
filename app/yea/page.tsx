@@ -31,21 +31,42 @@ export default function YEAPage() {
             src: "/yea/volta/photo_2026-02-13_14-46-18.jpg",
             caption: "HR Director visits Ashanti Region as part of a district tour exercise.",
             alt: "HR Director visiting Ashanti Region"
+        },
+        {
+            src: [
+                "/yea/training/photo_1_2026-02-20_13-23-41.jpg",
+                "/yea/training/photo_2_2026-02-20_13-23-41.jpg"
+            ],
+            caption: "YEA Leadership Training in London, 2026.",
+            alt: "YEA Leadership Training in London"
         }
     ];
 
     return (
         <div className="space-y-12 pb-20">
             {/* Header Section */}
-            <section className="relative bg-emerald-950 text-white py-20 px-6 sm:px-12">
-                <div className="max-w-5xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                        Youth Employment Agency (YEA)
-                    </h1>
-                    <div className="h-1.5 w-24 bg-red-600 mb-6"></div>
-                    <p className="text-emerald-100 text-lg md:text-xl max-w-2xl leading-relaxed">
-                        Leading strategic workforce development and institutional transformation.
-                    </p>
+            <section className="relative bg-emerald-950 text-white py-16 px-6 sm:px-12">
+                <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                    <div className="flex-shrink-0">
+                        <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-2xl p-2 flex items-center justify-center shadow-2xl border border-emerald-800/20">
+                            <Image
+                                src="/yea/Yea-logo.png"
+                                alt="YEA Logo"
+                                width={128}
+                                height={128}
+                                className="object-contain"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex-1 text-center md:text-left">
+                        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                            Youth Employment Agency (YEA)
+                        </h1>
+                        <div className="h-1.5 w-24 bg-red-600 mb-6 mx-auto md:mx-0"></div>
+                        <p className="text-emerald-100 text-lg md:text-xl max-w-2xl leading-relaxed">
+                            Leading strategic workforce development and institutional transformation.
+                        </p>
+                    </div>
                 </div>
             </section>
 
