@@ -4,15 +4,28 @@ export default function PoliticsPage() {
     return (
         <div className="space-y-12 pb-20">
             {/* Header Section */}
-            <section className="relative bg-emerald-950 text-white py-20 px-6 sm:px-12">
-                <div className="max-w-5xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                        Politics
-                    </h1>
-                    <div className="h-1.5 w-24 bg-red-600 mb-6"></div>
-                    <p className="text-emerald-100 text-lg md:text-xl max-w-2xl leading-relaxed">
-                        Service and leadership within the National Democratic Congress (NDC).
-                    </p>
+            <section className="relative bg-emerald-950 text-white py-16 px-6 sm:px-12">
+                <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                    <div className="flex-shrink-0">
+                        <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-2xl p-2 flex items-center justify-center shadow-2xl border border-emerald-800/20">
+                            <Image
+                                src="/politics/ndc.png"
+                                alt="NDC Logo"
+                                width={128}
+                                height={128}
+                                className="object-contain"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex-1 text-center md:text-left">
+                        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                            Politics
+                        </h1>
+                        <div className="h-1.5 w-24 bg-red-600 mb-6 mx-auto md:mx-0"></div>
+                        <p className="text-emerald-100 text-lg md:text-xl max-w-2xl leading-relaxed">
+                            Service and leadership within the National Democratic Congress (NDC).
+                        </p>
+                    </div>
                 </div>
             </section>
 
