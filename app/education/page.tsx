@@ -1,6 +1,42 @@
+"use client";
+
+import { useState } from "react";
 import { GraduationCap } from "lucide-react";
+import Image from "next/image";
+import { Lightbox } from "@/app/components/ui/Lightbox";
+
+const ghanaLawImages = [
+    { src: "/education/ghana-school-of-law/photo_1_2026-02-26_09-13-27.jpg", alt: "Ghana School of Law - Graduation Moment" },
+    { src: "/education/ghana-school-of-law/photo_2026-02-26_09-16-09.jpg", alt: "Ghana School of Law - Academic Success" },
+    { src: "/education/ghana-school-of-law/photo_2026-02-26_09-16-11.jpg", alt: "Ghana School of Law - Professional Milestone" },
+    { src: "/education/ghana-school-of-law/photo_2026-02-26_09-16-12.jpg", alt: "Ghana School of Law - Call to the Bar" }
+];
+
+const floridaImages = [
+    { src: "/education/uni-of-florida/photo_10_2026-02-26_09-13-27.jpg", alt: "University of Florida - Academic Journey" },
+    { src: "/education/uni-of-florida/photo_2026-02-26_09-15-03.jpg", alt: "University of Florida - Graduation Day" },
+    { src: "/education/uni-of-florida/photo_2026-02-26_09-15-19.jpg", alt: "University of Florida - Professional Growth" },
+    { src: "/education/uni-of-florida/photo_2_2026-02-26_09-13-27.jpg", alt: "University of Florida - Master of Science" },
+    { src: "/education/uni-of-florida/photo_3_2026-02-26_09-13-27.jpg", alt: "University of Florida - Campus Life" },
+    { src: "/education/uni-of-florida/photo_4_2026-02-26_09-13-27.jpg", alt: "University of Florida - Academic Achievement" },
+    { src: "/education/uni-of-florida/photo_5_2026-02-26_09-13-27.jpg", alt: "University of Florida - Study Abroad" },
+    { src: "/education/uni-of-florida/photo_6_2026-02-26_09-13-27.jpg", alt: "University of Florida - Gator Spirit" },
+    { src: "/education/uni-of-florida/photo_7_2026-02-26_09-13-27.jpg", alt: "University of Florida - International Education" },
+    { src: "/education/uni-of-florida/photo_8_2026-02-26_09-13-27.jpg", alt: "University of Florida - Social Impact" },
+    { src: "/education/uni-of-florida/photo_9_2026-02-26_09-13-27.jpg", alt: "University of Florida - Leadership" }
+];
+
+const allImages = [...ghanaLawImages, ...floridaImages];
 
 export default function EducationPage() {
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+    const openLightbox = (index: number) => {
+        setSelectedImageIndex(index);
+        setLightboxOpen(true);
+    };
+
     return (
         <div className="space-y-12 pb-20">
             {/* Header Section */}
@@ -35,49 +71,80 @@ export default function EducationPage() {
                 </div>
             </section>
 
-            {/* Gallery Section */}
-            <section className="px-6 sm:px-12 max-w-5xl mx-auto space-y-6">
-                <div>
-                    <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
-                        Academic Journey
-                    </h2>
-                    <div className="h-1 w-20 bg-emerald-600/30"></div>
-                </div>
-                <p className="text-slate-600 italic">
-                    Images from various graduations and academic events.
-                </p>
+            {/* Gallery Sections */}
+            <section className="px-6 sm:px-12 max-w-7xl mx-auto space-y-16">
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Placeholder 1 */}
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-slate-100 bg-slate-200 flex items-center justify-center">
-                        <div className="text-center text-slate-400">
-                            <GraduationCap className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                            <p className="font-medium">Graduation Photo 1</p>
-                        </div>
+                {/* Ghana School of Law Section */}
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
+                            Ghana School Of Law
+                        </h2>
+                        <div className="h-1 w-20 bg-emerald-600/30"></div>
                     </div>
-                    {/* Placeholder 2 */}
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-slate-100 bg-slate-200 flex items-center justify-center">
-                        <div className="text-center text-slate-400">
-                            <GraduationCap className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                            <p className="font-medium">Graduation Photo 2</p>
-                        </div>
-                    </div>
-                    {/* Placeholder 3 */}
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-slate-100 bg-slate-200 flex items-center justify-center">
-                        <div className="text-center text-slate-400">
-                            <GraduationCap className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                            <p className="font-medium">Call to the Bar 1</p>
-                        </div>
-                    </div>
-                    {/* Placeholder 4 */}
-                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-slate-100 bg-slate-200 flex items-center justify-center">
-                        <div className="text-center text-slate-400">
-                            <GraduationCap className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                            <p className="font-medium">Call to the Bar 2</p>
-                        </div>
+                    <p className="text-slate-600 italic">
+                        Moments from the Ghana School of Law.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {ghanaLawImages.map((img, idx) => (
+                            <div
+                                key={idx}
+                                className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-slate-100 cursor-pointer"
+                                onClick={() => openLightbox(idx)}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                            </div>
+                        ))}
                     </div>
                 </div>
+
+                {/* University of Florida Section */}
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
+                            University of Florida
+                        </h2>
+                        <div className="h-1 w-20 bg-emerald-600/30"></div>
+                    </div>
+                    <p className="text-slate-600 italic">
+                        Academic journey and graduation at the University of Florida.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {floridaImages.map((img, idx) => (
+                            <div
+                                key={idx}
+                                className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-slate-100 cursor-pointer"
+                                onClick={() => openLightbox(ghanaLawImages.length + idx)}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
             </section>
+
+            {/* Lightbox Component */}
+            <Lightbox
+                images={allImages}
+                isOpen={lightboxOpen}
+                initialIndex={selectedImageIndex}
+                onClose={() => setLightboxOpen(false)}
+            />
         </div>
     );
 }
