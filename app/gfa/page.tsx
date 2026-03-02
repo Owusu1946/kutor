@@ -29,8 +29,14 @@ export default function GFAPage() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-900/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
                 <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 relative z-10">
                     <div className="flex-shrink-0">
-                        <div className="w-20 h-20 md:w-24 md:h-24 bg-emerald-900 rounded-2xl p-4 flex items-center justify-center shadow-2xl border border-emerald-800/30 rotate-3">
-                            <Shield className="w-12 h-12 md:w-16 md:h-16 text-emerald-300" />
+                        <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-2xl p-4 flex items-center justify-center shadow-2xl border border-emerald-800/20 rotate-3 overflow-hidden">
+                            <Image
+                                src="/gfa/logo.jpg"
+                                alt="GFA Logo"
+                                width={128}
+                                height={128}
+                                className="object-contain"
+                            />
                         </div>
                     </div>
                     <div className="flex-1 text-center md:text-left">

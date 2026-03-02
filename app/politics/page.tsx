@@ -44,6 +44,28 @@ export default function PoliticsPage() {
             {/* Gallery Sections */}
             <section className="px-6 sm:px-12 max-w-7xl mx-auto space-y-16">
 
+                {/* NDC Flagbearer 2024 Campaign */}
+                <div className="space-y-6">
+                    <div>
+                        <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
+                            NDC Flagbearer 2024 Campaign
+                        </h2>
+                        <div className="h-1 w-20 bg-emerald-600/30"></div>
+                    </div>
+                    <p className="text-slate-600 italic">
+                        Final moments of the campaign with the NDC Flagbearer for the 2024 General Elections
+                    </p>
+                    <div className="relative aspect-[16/9] w-full max-w-5xl rounded-xl overflow-hidden shadow-lg border border-slate-100">
+                        <Image
+                            src="/politics/flagbearer/photo_1_2026-03-02_15-44-02.jpg"
+                            alt="Final moments of the campaign with the NDC Flagbearer for the 2024 General Elections"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 80vw"
+                        />
+                    </div>
+                </div>
+
                 {/* Gallery 1: National Executives 2022 */}
                 <div className="space-y-6">
                     <div>
