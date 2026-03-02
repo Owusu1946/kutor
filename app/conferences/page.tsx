@@ -1,6 +1,40 @@
-import { Mic2, Globe, Building2, ExternalLink } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Mic2, Globe, Building2, ExternalLink, Image as ImageIcon } from "lucide-react";
+import Image from "next/image";
+import { Lightbox } from "@/app/components/ui/Lightbox";
 
 export default function ConferencesPage() {
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+    const amsImages = [
+        { src: "/conferences/ams/photo_1_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Presentation Session" },
+        { src: "/conferences/ams/photo_2_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Professional Networking" },
+        { src: "/conferences/ams/photo_3_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Keynote Address" },
+        { src: "/conferences/ams/photo_4_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Academic Discussion" },
+        { src: "/conferences/ams/photo_5_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Group Photo" },
+        { src: "/conferences/ams/photo_6_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Delegate Interaction" },
+        { src: "/conferences/ams/photo_7_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Event Highlight" },
+        { src: "/conferences/ams/photo_8_2026-03-02_13-25-54.jpg", alt: "AMS Conference - Institutional Exchange" }
+    ];
+
+    const otcImages = [
+        { src: "/conferences/otc/photo_1_2026-03-02_13-39-41.jpg", alt: "OTC Conference - Energy Innovation Session" },
+        { src: "/conferences/otc/photo_2_2026-03-02_13-39-41.jpg", alt: "OTC Conference - Networking Event" },
+        { src: "/conferences/otc/photo_3_2026-03-02_13-39-41.jpg", alt: "OTC Conference - Institutional Representation" },
+        { src: "/conferences/otc/photo_4_2026-03-02_13-39-41.jpg", alt: "OTC Conference - Technical Discussion" },
+        { src: "/conferences/otc/photo_5_2026-03-02_13-39-41.jpg", alt: "OTC Conference - Event Highlight" }
+    ];
+
+    const allImages = [...amsImages, ...otcImages];
+
+    const openLightbox = (index: number) => {
+        setSelectedImageIndex(index);
+        setLightboxOpen(true);
+    };
+
     return (
         <div className="space-y-12 pb-20">
             {/* Header Section */}
@@ -33,49 +67,101 @@ export default function ConferencesPage() {
             </section>
 
             {/* Content Sections */}
-            <section className="px-6 sm:px-12 max-w-5xl mx-auto space-y-16">
+            <section className="px-6 sm:px-12 max-w-5xl mx-auto space-y-24">
 
                 {/* AMS Conference */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <div>
-                            <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
-                                Academy of Marketing Science (AMS)
-                            </h2>
-                            <div className="h-1 w-20 bg-emerald-600/30 mb-4"></div>
-                            <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider rounded-full">
-                                <Globe className="w-3 h-3" /> Canada
-                            </span>
+                <div className="space-y-8">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-4">
+                                <h2 className="text-3xl font-serif font-bold text-emerald-950">
+                                    Academy of Marketing Science (AMS)
+                                </h2>
+                                <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider rounded-full h-fit">
+                                    <Globe className="w-3 h-3" /> Canada
+                                </span>
+                            </div>
+                            <div className="h-1.5 w-24 bg-emerald-600"></div>
+                            <p className="text-slate-600 leading-relaxed text-lg max-w-2xl">
+                                Participated in the Annual Conference of the Academy of Marketing Science, engaging with global leaders in marketing academia and practice.
+                            </p>
                         </div>
-                        <p className="text-slate-600 leading-relaxed text-lg">
-                            Participated in the Annual Conference of the Academy of Marketing Science, engaging with global leaders in marketing academia and practice.
-                        </p>
+                        <div className="flex items-center gap-2 text-emerald-700 font-medium bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 h-fit">
+                            <ImageIcon className="w-5 h-5" />
+                            <span>Conference Moments</span>
+                        </div>
                     </div>
-                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-slate-100 flex items-center justify-center border border-slate-200">
-                        <Mic2 className="w-16 h-16 text-slate-300 opacity-50" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {amsImages.map((img, idx) => (
+                            <div
+                                key={idx}
+                                className={`relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group border border-slate-100 cursor-pointer ${idx === 0 || idx === 1 ? "sm:col-span-1" : ""}`}
+                                onClick={() => openLightbox(idx)}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                                    <p className="text-white text-xs font-medium">
+                                        {img.alt}
+                                    </p>
+                                </div>
+                                <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-emerald-900/0 transition-colors duration-500" />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* OTC Conference */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-slate-100 flex items-center justify-center border border-slate-200 md:order-last">
-                        <Building2 className="w-16 h-16 text-slate-300 opacity-50" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
-                    </div>
-                    <div className="space-y-6">
-                        <div>
-                            <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
-                                Offshore Technology Conference (OTC)
-                            </h2>
-                            <div className="h-1 w-20 bg-emerald-600/30 mb-4"></div>
-                            <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider rounded-full">
-                                <Globe className="w-3 h-3" /> United States
-                            </span>
+                {/* OTC Conference Section */}
+                <div className="space-y-8">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-4">
+                                <h2 className="text-3xl font-serif font-bold text-emerald-950">
+                                    Offshore Technology Conference (OTC)
+                                </h2>
+                                <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider rounded-full h-fit">
+                                    <Globe className="w-3 h-3" /> United States
+                                </span>
+                            </div>
+                            <div className="h-1.5 w-24 bg-emerald-600"></div>
+                            <p className="text-slate-600 leading-relaxed text-lg max-w-2xl">
+                                Attended the world&apos;s foremost event for offshore resource development, focusing on the latest in energy technology and global policy.
+                            </p>
                         </div>
-                        <p className="text-slate-600 leading-relaxed text-lg">
-                            Attended the world's foremost event for offshore resource development, focusing on the latest in energy technology and global policy.
-                        </p>
+                        <div className="flex items-center gap-2 text-emerald-700 font-medium bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 h-fit">
+                            <Building2 className="w-5 h-5" />
+                            <span>Global Energy Leaders</span>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {otcImages.map((img, idx) => (
+                            <div
+                                key={idx}
+                                className={`relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg group border border-slate-100 cursor-pointer ${idx === 0 || idx === 3 ? "lg:col-span-2" : ""}`}
+                                onClick={() => openLightbox(amsImages.length + idx)}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                                    <p className="text-white text-sm font-medium">
+                                        {img.alt}
+                                    </p>
+                                </div>
+                                <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-emerald-900/0 transition-colors duration-500" />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -83,10 +169,10 @@ export default function ConferencesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <div>
-                            <h2 className="text-2xl font-serif font-bold text-emerald-950 mb-2">
+                            <h2 className="text-3xl font-serif font-bold text-emerald-950 mb-4">
                                 Governance & Financial Oversight
                             </h2>
-                            <div className="h-1 w-20 bg-emerald-600/30 mb-4"></div>
+                            <div className="h-1.5 w-24 bg-emerald-600 mb-6"></div>
                             <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider rounded-full">
                                 <Globe className="w-3 h-3" /> London, UK
                             </span>
@@ -95,13 +181,20 @@ export default function ConferencesPage() {
                             Completed advanced board training program focused on corporate governance and financial oversight responsibilities.
                         </p>
                     </div>
-                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md bg-slate-100 flex items-center justify-center border border-slate-200">
+                    <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg bg-slate-100 flex items-center justify-center border border-slate-200">
                         <ExternalLink className="w-16 h-16 text-slate-300 opacity-50" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
                     </div>
                 </div>
 
             </section>
+
+            <Lightbox
+                images={allImages}
+                isOpen={lightboxOpen}
+                initialIndex={selectedImageIndex}
+                onClose={() => setLightboxOpen(false)}
+            />
         </div>
     );
 }

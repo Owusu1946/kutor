@@ -1,28 +1,57 @@
 "use client";
 
 import { Play } from "lucide-react";
+import { useRef, useState } from "react";
 
 interface VideoCardProps {
     title: string;
-    thumbnail: string;
+    videoSrc: string;
     duration: string;
     date: string;
     category?: string;
+    onClick?: () => void;
 }
 
-export function VideoCard({ title, thumbnail, duration, date, category }: VideoCardProps) {
+export function VideoCard({ title, videoSrc, duration, date, category, onClick }: VideoCardProps) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        if (videoRef.current) {
+            videoRef.current.play().catch(err => console.log("Video preview play blocked:", err));
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+    };
+
     return (
-        <div className="group relative cursor-pointer block">
+        <div
+            onClick={onClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="group relative cursor-pointer block"
+        >
             {/* Thumbnail Container */}
-            <div className="relative aspect-video bg-zinc-100 rounded-xl overflow-hidden mb-3 border border-zinc-200/50 shadow-sm group-hover:shadow-md transition-all">
-                {/* Image Placeholder - In real app use Next/Image */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${thumbnail})` }}
+            <div className="relative aspect-video bg-emerald-950 rounded-xl overflow-hidden mb-3 border border-emerald-800/20 shadow-sm group-hover:shadow-emerald-900/20 group-hover:shadow-xl transition-all duration-500">
+                <video
+                    ref={videoRef}
+                    src={videoSrc}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
+                <div className={`absolute inset-0 bg-emerald-950/20 transition-opacity duration-500 ${isHovered ? 'opacity-0' : 'opacity-100'}`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -32,17 +61,22 @@ export function VideoCard({ title, thumbnail, duration, date, category }: VideoC
                 </div>
 
                 {/* Duration Badge */}
-                <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/60 backdrop-blur-sm text-white text-[10px] font-medium rounded-md">
+                <div className="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/60 backdrop-blur-sm text-white text-[10px] font-medium rounded-md border border-white/10">
                     {duration}
+                </div>
+
+                {/* Preview Badge */}
+                <div className={`absolute top-2 left-2 px-2 py-0.5 bg-emerald-500/80 backdrop-blur-sm text-white text-[9px] font-bold uppercase tracking-widest rounded transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                    Preview
                 </div>
             </div>
 
             {/* Content */}
             <div className="space-y-1">
-                <div className="flex items-center justify-between text-xs text-zinc-500 mb-1">
+                <div className="flex items-center justify-between text-xs text-slate-500 mb-1">
                     <span>{date}</span>
                     {category && (
-                        <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
+                        <span className="px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-[10px] font-bold">
                             {category}
                         </span>
                     )}
