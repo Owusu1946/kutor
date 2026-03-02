@@ -18,9 +18,7 @@ const floridaImages = [
     { src: "/education/uni-of-florida/photo_2026-02-26_09-15-19.jpg", alt: "University of Florida - Professional Growth" },
     { src: "/education/uni-of-florida/photo_2_2026-02-26_09-13-27.jpg", alt: "University of Florida - Master of Science" },
     { src: "/education/uni-of-florida/photo_3_2026-02-26_09-13-27.jpg", alt: "University of Florida - Campus Life" },
-    { src: "/education/uni-of-florida/photo_4_2026-02-26_09-13-27.jpg", alt: "University of Florida - Academic Achievement" },
     { src: "/education/uni-of-florida/photo_5_2026-02-26_09-13-27.jpg", alt: "University of Florida - Study Abroad" },
-    { src: "/education/uni-of-florida/photo_6_2026-02-26_09-13-27.jpg", alt: "University of Florida - Gator Spirit" },
     { src: "/education/uni-of-florida/photo_7_2026-02-26_09-13-27.jpg", alt: "University of Florida - International Education" },
     { src: "/education/uni-of-florida/photo_8_2026-02-26_09-13-27.jpg", alt: "University of Florida - Social Impact" },
     { src: "/education/uni-of-florida/photo_9_2026-02-26_09-13-27.jpg", alt: "University of Florida - Leadership" }
