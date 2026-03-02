@@ -8,39 +8,39 @@ import { Video, Sparkles } from "lucide-react";
 const VIDEOS = [
     {
         id: 1,
-        title: "Official Delegation and Field Inspection",
+        title: "University of Florida Graduation",
         src: "/videos/IMG_1327.MP4",
-        thumbnail: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?auto=format&fit=crop&q=80&w=800",
+        thumbnail: "/videos/thumbnails/IMG_1327.jpg",
         duration: "0:24",
-        date: "March 2026",
-        category: "Projects"
+        date: "December 2024",
+        category: "Graduation"
     },
     {
         id: 2,
-        title: "Community Engagement and Address",
+        title: "Call to the Bar ceremony",
         src: "/videos/IMG_1328.MP4",
-        thumbnail: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
+        thumbnail: "/videos/thumbnails/IMG_1328.jpg",
         duration: "1:15",
-        date: "March 2026",
-        category: "Leadership"
+        date: "5th May, 2023",
+        category: "BAR"
     },
     {
         id: 3,
-        title: "Project Milestone Highlight",
+        title: "University Of Ghana Graduation",
         src: "/videos/IMG_1329.MP4",
-        thumbnail: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
+        thumbnail: "/videos/thumbnails/IMG_1329.jpg",
         duration: "0:37",
-        date: "March 2026",
-        category: "Development"
+        date: "February 2025",
+        category: "Graduation"
     },
     {
         id: 4,
-        title: "Institutional Interaction and Briefing",
+        title: "Call to the Bar ceremony",
         src: "/videos/IMG_1330.MP4",
-        thumbnail: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800",
+        thumbnail: "/videos/thumbnails/IMG_1330.jpg",
         duration: "0:26",
-        date: "March 2026",
-        category: "Media"
+        date: "5th May, 2023",
+        category: "BAR"
     }
 ];
 
@@ -58,7 +58,7 @@ export default function VideosPage() {
                         Professional Media
                     </span>
                     <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4">
-                        Videos & Interviews
+                        Videos
                     </h1>
                     <div className="h-1.5 w-24 bg-red-600 mb-6 rounded-full shadow-lg shadow-red-900/20"></div>
                     <p className="text-lg text-emerald-100 max-w-2xl font-light leading-relaxed">
@@ -80,6 +80,7 @@ export default function VideosPage() {
                             key={video.id}
                             title={video.title}
                             videoSrc={video.src}
+                            thumbnailSrc={video.thumbnail}
                             duration={video.duration}
                             date={video.date}
                             category={video.category}
