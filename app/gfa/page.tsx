@@ -51,7 +51,7 @@ export default function GFAPage() {
             <section className="px-6 sm:px-12 max-w-5xl mx-auto">
                 <div className="max-w-3xl prose prose-lg prose-emerald text-slate-700 space-y-6">
                     <p className="text-xl md:text-2xl leading-relaxed text-slate-800 font-serif">
-                        In 2025, Mr. Kutor was appointed member of the Black Starlets (U-17) Management Committee by the Ghana Football Association (GFA).
+                        In September 2025, Mr. Kutor was appointed member of the Black Starlets (U-17) Management Committee by the Ghana Football Association (GFA).
                     </p>
                     <p className="text-lg md:text-xl leading-relaxed text-slate-600">
                         The Committee is chaired by Mr. Frederick Acheampong.

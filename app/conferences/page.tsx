@@ -193,45 +193,45 @@ export default function ConferencesPage() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {yeaTrainingImages.map((img, idx) => (
-                            <div
-                                key={`yea-${idx}`}
-                                className="relative aspect-video rounded-2xl overflow-hidden shadow-xl group border border-white cursor-pointer"
-                                onClick={() => openLightbox(amsImages.length + otcImages.length + idx)}
-                            >
-                                <Image
-                                    src={img.src}
-                                    alt={img.alt}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
-                                    sizes="(max-width: 768px) 100vw, 33vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
-                                    <p className="text-white text-lg font-serif">
-                                        {img.alt}
-                                    </p>
+                            <div key={`yea-${idx}`} className="space-y-4">
+                                <div
+                                    className="relative aspect-video rounded-2xl overflow-hidden shadow-xl group border border-white cursor-pointer"
+                                    onClick={() => openLightbox(amsImages.length + otcImages.length + idx)}
+                                >
+                                    <Image
+                                        src={img.src}
+                                        alt={img.alt}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                    <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-transparent transition-colors duration-500" />
                                 </div>
+                                <p className="text-slate-600 text-sm font-medium border-l-2 border-emerald-600/30 pl-3 leading-snug">
+                                    {img.alt}
+                                </p>
                             </div>
                         ))}
                         {vraTrainingImages.map((img, idx) => (
-                            <div
-                                key={`vra-${idx}`}
-                                className="relative aspect-video rounded-2xl overflow-hidden shadow-xl group border border-white cursor-pointer"
-                                onClick={() => openLightbox(amsImages.length + otcImages.length + yeaTrainingImages.length + idx)}
-                            >
-                                <Image
-                                    src={img.src}
-                                    alt={img.alt}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
-                                    sizes="(max-width: 768px) 100vw, 33vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
-                                    <p className="text-white text-lg font-serif">
-                                        {img.alt}
-                                    </p>
+                            <div key={`vra-${idx}`} className="space-y-4">
+                                <div
+                                    className="relative aspect-video rounded-2xl overflow-hidden shadow-xl group border border-white cursor-pointer"
+                                    onClick={() => openLightbox(amsImages.length + otcImages.length + yeaTrainingImages.length + idx)}
+                                >
+                                    <Image
+                                        src={img.src}
+                                        alt={img.alt}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                    <div className="absolute inset-0 bg-emerald-900/10 group-hover:bg-transparent transition-colors duration-500" />
                                 </div>
+                                <p className="text-slate-600 text-sm font-medium border-l-2 border-emerald-600/30 pl-3 leading-snug">
+                                    {img.alt}
+                                </p>
                             </div>
                         ))}
                     </div>
