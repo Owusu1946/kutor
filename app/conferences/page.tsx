@@ -181,10 +181,6 @@ export default function ConferencesPage() {
                             Completed advanced board training program focused on corporate governance and financial oversight responsibilities.
                         </p>
                     </div>
-                    <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg bg-slate-100 flex items-center justify-center border border-slate-200">
-                        <ExternalLink className="w-16 h-16 text-slate-300 opacity-50" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
-                    </div>
                 </div>
 
             </section>
