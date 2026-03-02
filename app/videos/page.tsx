@@ -62,7 +62,7 @@ export default function VideosPage() {
                     </h1>
                     <div className="h-1.5 w-24 bg-red-600 mb-6 rounded-full shadow-lg shadow-red-900/20"></div>
                     <p className="text-lg text-emerald-100 max-w-2xl font-light leading-relaxed">
-                        Explore event highlights, field inspections, and institutional updates featuring Wonder Victor Kutor.
+                        Call to the Ghana Bar Videos and University of Florida Videos
                     </p>
                 </div>
             </div>
