@@ -28,7 +28,16 @@ export default function ConferencesPage() {
         { src: "/conferences/otc/photo_5_2026-03-02_13-39-41.jpg", alt: "OTC Conference - Event Highlight" }
     ];
 
-    const allImages = [...amsImages, ...otcImages];
+    const yeaTrainingImages = [
+        { src: "/yea/training/photo_1_2026-02-20_13-23-41.jpg", alt: "YEA Management Training in London" },
+        { src: "/yea/training/photo_2_2026-02-20_13-23-41.jpg", alt: "YEA Management Training in London" }
+    ];
+
+    const vraTrainingImages = [
+        { src: "/conferences/vra/image.png", alt: "VRA Board Training program in London" }
+    ];
+
+    const allImages = [...amsImages, ...otcImages, ...yeaTrainingImages, ...vraTrainingImages];
 
     const openLightbox = (index: number) => {
         setSelectedImageIndex(index);
@@ -166,20 +175,65 @@ export default function ConferencesPage() {
                 </div>
 
                 {/* Board Training London */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <div>
-                            <h2 className="text-3xl font-serif font-bold text-emerald-950 mb-4">
-                                Governance & Financial Oversight
-                            </h2>
-                            <div className="h-1.5 w-24 bg-emerald-600 mb-6"></div>
-                            <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider rounded-full">
-                                <Globe className="w-3 h-3" /> London, UK
-                            </span>
+                <div className="space-y-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6">
+                            <div>
+                                <h2 className="text-3xl font-serif font-bold text-emerald-950 mb-4">
+                                    Governance & Financial Oversight
+                                </h2>
+                                <div className="h-1.5 w-24 bg-emerald-600 mb-6"></div>
+                                <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider rounded-full">
+                                    <Globe className="w-3 h-3" /> London, UK
+                                </span>
+                            </div>
+                            <p className="text-slate-600 leading-relaxed text-lg">
+                                Completed advanced board training program focused on corporate governance and financial oversight responsibilities.
+                            </p>
                         </div>
-                        <p className="text-slate-600 leading-relaxed text-lg">
-                            Completed advanced board training program focused on corporate governance and financial oversight responsibilities.
-                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+                        {yeaTrainingImages.map((img, idx) => (
+                            <div
+                                key={`yea-${idx}`}
+                                className="relative aspect-video rounded-2xl overflow-hidden shadow-xl group border border-white cursor-pointer"
+                                onClick={() => openLightbox(amsImages.length + otcImages.length + idx)}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
+                                    <p className="text-white text-lg font-serif">
+                                        {img.alt}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                        {vraTrainingImages.map((img, idx) => (
+                            <div
+                                key={`vra-${idx}`}
+                                className="relative aspect-video rounded-2xl overflow-hidden shadow-xl group border border-white cursor-pointer"
+                                onClick={() => openLightbox(amsImages.length + otcImages.length + yeaTrainingImages.length + idx)}
+                            >
+                                <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
+                                    <p className="text-white text-lg font-serif">
+                                        {img.alt}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
