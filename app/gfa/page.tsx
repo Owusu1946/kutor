@@ -31,7 +31,7 @@ export default function GFAPage() {
                     <div className="flex-shrink-0">
                         <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-2xl p-4 flex items-center justify-center shadow-2xl border border-emerald-800/20 rotate-3 overflow-hidden">
                             <Image
-                                src="/gfa/logo.jpg"
+                                src="/gfa/logo.png"
                                 alt="GFA Logo"
                                 width={128}
                                 height={128}
