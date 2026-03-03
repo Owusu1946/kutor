@@ -56,7 +56,7 @@ export function Hero() {
             </motion.div>
 
             <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
-                <div className="h-20 flex items-center justify-center">
+                <div className="min-h-[5rem] flex items-center justify-center py-6 md:py-8">
                     <AnimatePresence mode="wait">
                         {!isExpanded ? (
                             <motion.button
@@ -67,7 +67,7 @@ export function Hero() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => setIsExpanded(true)}
-                                className="group relative px-10 py-4 bg-emerald-950 text-white rounded-full text-lg font-medium tracking-wide shadow-xl hover:shadow-2xl hover:bg-emerald-900 transition-all cursor-pointer overflow-hidden"
+                                className="group relative px-8 py-4 sm:px-10 sm:py-4 bg-emerald-950 text-white rounded-full text-lg font-medium tracking-wide shadow-xl hover:shadow-2xl hover:bg-emerald-900 transition-all cursor-pointer overflow-hidden"
                             >
                                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 The Immigration Formulae
@@ -78,7 +78,7 @@ export function Hero() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                className="flex flex-col sm:flex-row gap-4 sm:gap-6"
+                                className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4 sm:gap-6"
                             >
                                 <motion.a
                                     href="/files/About the Book.pdf"
@@ -86,7 +86,7 @@ export function Hero() {
                                     initial={{ x: -20, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: 0.05, type: "spring", stiffness: 200, damping: 20 }}
-                                    className="px-8 py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
+                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
                                 >
                                     About Book
                                 </motion.a>
@@ -96,17 +96,33 @@ export function Hero() {
                                     initial={{ x: -20, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 20 }}
-                                    className="px-8 py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
+                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
                                 >
                                     Table of Contents
                                 </motion.a>
+                                <motion.button
+                                    initial={{ x: -20, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ delay: 0.15, type: "spring", stiffness: 200, damping: 20 }}
+                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
+                                >
+                                    Book Auction
+                                </motion.button>
+                                <motion.button
+                                    initial={{ x: -20, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
+                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
+                                >
+                                    Program Line-Up
+                                </motion.button>
                                 <motion.a
                                     href="/files/FOREWORDS - THE IMMIGRATION FORMULAE.pdf"
                                     download="FOREWORDS - THE IMMIGRATION FORMULAE.pdf"
                                     initial={{ x: 20, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
-                                    className="px-8 py-3 bg-emerald-950 text-white rounded-full text-sm font-semibold hover:bg-emerald-900 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
+                                    transition={{ delay: 0.25, type: "spring", stiffness: 200, damping: 20 }}
+                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-emerald-950 text-white rounded-full text-sm font-semibold hover:bg-emerald-900 shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
                                 >
                                     Forewords
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
