@@ -108,14 +108,18 @@ export function Hero() {
                                 >
                                     Book Auction
                                 </motion.button>
-                                <motion.button
+                                <motion.a
+                                    href="/files/OUTLINE.pdf"
+                                    download="OUTLINE.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     initial={{ x: -20, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
-                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all"
+                                    className="px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-emerald-950 border border-emerald-900/10 rounded-full text-sm font-semibold hover:bg-emerald-50 hover:border-emerald-900/20 shadow-lg hover:shadow-xl transition-all cursor-pointer"
                                 >
                                     Program Line-Up
-                                </motion.button>
+                                </motion.a>
                                 <motion.a
                                     href="/files/FOREWORDS - THE IMMIGRATION FORMULAE.pdf"
                                     download="FOREWORDS - THE IMMIGRATION FORMULAE.pdf"
