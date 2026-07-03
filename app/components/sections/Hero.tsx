@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export function Hero() {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -59,19 +60,33 @@ export function Hero() {
                 <div className="min-h-[5rem] flex items-center justify-center py-6 md:py-8">
                     <AnimatePresence mode="wait">
                         {!isExpanded ? (
-                            <motion.button
-                                key="primary-button"
+                            <motion.div
+                                key="primary-buttons-container"
                                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)", transition: { duration: 0.2 } }}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.98 }}
-                                onClick={() => setIsExpanded(true)}
-                                className="group relative px-8 py-4 sm:px-10 sm:py-4 bg-emerald-950 text-white rounded-full text-lg font-medium tracking-wide shadow-xl hover:shadow-2xl hover:bg-emerald-900 transition-all cursor-pointer overflow-hidden"
+                                className="flex flex-col sm:flex-row gap-4 items-center justify-center"
                             >
-                                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                The Immigration Formulae
-                            </motion.button>
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    onClick={() => setIsExpanded(true)}
+                                    className="group relative px-8 py-4 sm:px-10 sm:py-4 bg-emerald-950 text-white rounded-full text-lg font-medium tracking-wide shadow-xl hover:shadow-2xl hover:bg-emerald-900 transition-all cursor-pointer overflow-hidden"
+                                >
+                                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    The Immigration Formulae
+                                </motion.button>
+
+                                <Link href="/ndc-election-2026" passHref legacyBehavior>
+                                    <motion.a
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className="group relative px-8 py-4 sm:px-10 sm:py-4 bg-red-600 hover:bg-red-500 text-white rounded-full text-lg font-medium tracking-wide shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden text-center"
+                                    >
+                                        NDC Election 2026
+                                    </motion.a>
+                                </Link>
+                            </motion.div>
                         ) : (
                             <motion.div
                                 key="secondary-buttons"

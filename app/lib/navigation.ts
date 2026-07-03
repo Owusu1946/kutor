@@ -9,7 +9,9 @@ import {
     Image,
     Trophy,
     Video,
-    BookOpen
+    BookOpen,
+    School,
+    Flame
 } from 'lucide-react';
 
 export const BRAND_DETAILS = {
@@ -41,6 +43,11 @@ export const NAV_ITEMS = [
         icon: Building2
     },
     {
+        label: "VRA Schools",
+        href: "/vra-schools",
+        icon: School
+    },
+    {
         label: "YEA",
         href: "/yea",
         icon: Users
@@ -49,6 +56,11 @@ export const NAV_ITEMS = [
         label: "Politics",
         href: "/politics",
         icon: Landmark
+    },
+    {
+        label: "NDC Election 2026",
+        href: "/ndc-election-2026",
+        icon: Flame
     },
     {
         label: "Conferences",
